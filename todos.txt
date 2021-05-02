@@ -4,12 +4,14 @@ unit 1: animal resource CRUD with upload photos
 mp1: rescuers resource CRUD
 mp2: shelter personnel resource CRUD (employees, vet, volunteers)
 mp3: adopter  - one to many animal
------------------
 mp4: animal with sickness cannot be adopted
+
+mp6: multiple validation rules and custom error messages
+
 mp5:
 -home should display adoptable animals
 -use ajax to display
-mp6: multiple validation rules and custom error messages
+-----------------
 mp7:
 -users can search for adoptable animals
 -use ajax

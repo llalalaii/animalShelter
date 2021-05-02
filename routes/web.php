@@ -28,6 +28,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // These route shows the main page where we showcase the animals without any sickness (rehabilitated) and are ready for adoption.
 Route::get('/', [MainController::class, 'home'])->name('home');
+Route::get('/adoptable', [MainController::class, 'adoptable'])->name('home.adoptable');
 
 // In these type of application i like to use "resource" because it gives a nice template to start for CRUDs which in this case has a lot of them.
 Route::resource('animals', AnimalController::class);

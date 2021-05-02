@@ -11,6 +11,7 @@ class Animal extends Model
     use HasFactory;
 
     protected $fillable = ['is_adopted'];
+    protected $appends = ['code', 'description_wrap'];
 
     // This accessor is defined to put a format to our ID and make look professional.
     public function getCodeAttribute()

@@ -8,25 +8,7 @@
 <div class="mt-4" id="home-content">
     @include('partials.page-title',['title'=>'The Adoptables'])
     <div class="container">
-        @if($animals->count() == 0)
-        <div class="alert alert-danger">
-            Wala pang available. Either may sakit pa or naadopt na.
-        </div>
-        @endif
-
-        {{-- we show all animals that are rehabilitated (with no sickness) --}}
-        <div class="d-flex flex-wrap justify-content-around">
-            @foreach ($animals as $item)
-            <div class="card mx-1 my-1 home-card">
-                <div class="card-body">
-                    <h5 class="card-title">{{$item->name}}</h5>
-                    <p class="card-text">{{$item->description_wrap}}</p>
-                    <p class="fst-italic">{{$item->code}}</p>
-                    <a href="{{route('animals.show',$item->id)}}" class="btn btn-outline-primary">Animal Details . . .</a>
-                </div>
-            </div>
-            @endforeach
-        </div>
+        <div class="d-flex flex-wrap justify-content-around" id="adoptable-wrapper"></div>
     </div>
 </div>
 
@@ -36,6 +18,47 @@
     var myCarousel = document.querySelector('#carouselExampleIndicators')
     var carousel = new bootstrap.Carousel(myCarousel, {
     interval: 2500,
+    });
+    $( document ).ready(function() {
+        $.ajax({
+            method: "GET",
+            url: "/adoptable",
+        })
+        .done(function(data) {
+            if(data.animals.length <= 0) {
+
+                $('#adoptable-wrapper').prepend(`
+                <div class="alert alert-danger">
+                    Wala pang available. Either may sakit pa or naadopt na.
+                </div>
+                `);
+
+            }
+
+            data.animals.forEach(item => {
+                // es6 way
+                $('#adoptable-wrapper').append(`
+                    <div class="card mx-1 my-1 home-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.name}</h5>
+                            <p class="card-text">${item.description}</p>
+                            <p class="fst-italic">${item.code}</p>
+                            <a href="/animals/${item.id}" class="btn btn-outline-primary">Animal Details . . .</a>
+                        </div>
+                    </div>
+                `);
+
+                // old way of appending
+                // var html = '<div class="card mx-1 my-1 home-card">';
+                // html += '<div class="card-body">';
+                // html += '<h5 class="card-title">'+item.name+'</h5>';
+                // html += '<p class="card-text">'+item.description+'</p>';
+                // html += '<p class="fst-italic">'+item.code+'</p>'
+                // html += '<a href="/animals/'+item.id+'" class="btn btn-outline-primary">Animal Details . . .</a>'
+                // html += '</div></div>';
+                // $('#adoptable-wrapper').append(html);
+            });
+        });
     });
 </script>
 @endsection
