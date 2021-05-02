@@ -12,14 +12,16 @@ mp5:
 -home should display adoptable animals
 -use ajax to display
 -----------------
-mp7:
+mp7: postponed
 -users can search for adoptable animals
 -use ajax
+
 mp8:
 -authentication for employees
 -only vet are allowed to enter data on animal diseases and injuries
+
 quiz2:
--display health status of (dog and cat) with photos
+-display info, health status of (dog and cat) with photos
 -use ajax to view animal health
 
 quiz3:

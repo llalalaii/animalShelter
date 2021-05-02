@@ -6,3 +6,17 @@ $('.session-alert').delay(3000).fadeOut('slow');
 $('#logoutBtn').click(function(){
     $('#logoutForm').submit();
 })
+
+$('#main-searchbar').keyup(function(e){
+    console.log(e)
+    // $.ajax({
+    //     method: "GET",
+    //     url: "/adoptable/search",
+    //     data: {
+    //         // name:
+    //     }
+    // })
+    // .done(function(data) {
+    // });
+});
+

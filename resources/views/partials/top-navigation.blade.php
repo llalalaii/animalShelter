@@ -66,8 +66,10 @@
             </ul>
         </div>
         {{-- TEMPORARY SEARCH NAVBAR --}}
+        @if(Route::is('home'))
         <div class="topnav">
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Search..." id="main-searchbar">
         </div>
+        @endif
     </div>
 </nav>

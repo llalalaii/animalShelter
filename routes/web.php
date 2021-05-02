@@ -28,7 +28,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // These route shows the main page where we showcase the animals without any sickness (rehabilitated) and are ready for adoption.
 Route::get('/', [MainController::class, 'home'])->name('home');
-Route::get('/adoptable', [MainController::class, 'adoptable'])->name('home.adoptable');
+Route::name('home.adoptable')->prefix('adoptable')->group(function () {
+    Route::get('/', [MainController::class, 'adoptable']);
+    Route::get('/{name}', [MainController::class, 'adoptableSearch'])->name('search');
+});
 
 // In these type of application i like to use "resource" because it gives a nice template to start for CRUDs which in this case has a lot of them.
 Route::resource('animals', AnimalController::class);
@@ -42,9 +45,11 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::resource('injuries', InjuryController::class);
 
     // These routes are added because they are outside the resource template.
-    Route::post('/animals/upload', [AnimalController::class, 'uploadPhotos'])->name('animals.upload');
-    Route::delete('/animals/remove/photo/{id}', [AnimalController::class, 'removePhotos'])->name('animals.remove');
-    Route::post('/animals/attachDetachSickness/', [AnimalController::class, 'attachDetachSickness'])->name('animals.attachDetachSickness');
+    Route::name('animals.')->prefix('animals')->group(function () {
+        Route::post('/upload', [AnimalController::class, 'uploadPhotos'])->name('upload');
+        Route::delete('/remove/photo/{id}', [AnimalController::class, 'removePhotos'])->name('remove');
+        Route::post('/attachDetachSickness/', [AnimalController::class, 'attachDetachSickness'])->name('attachDetachSickness');
+    });
     Route::post('/rescuers/attachDetach/', [RescuerController::class, 'attachDetach'])->name('rescuers.attachDetach');
     Route::post('/adopters/attachDetach/', [AdopterController::class, 'attachDetach'])->name('adopters.attachDetach');
 });

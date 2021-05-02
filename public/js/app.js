@@ -13,6 +13,17 @@ $('.session-alert').delay(3000).fadeOut('slow'); // this code is to submit a log
 $('#logoutBtn').click(function () {
   $('#logoutForm').submit();
 });
+$('#main-searchbar').keyup(function (e) {
+  console.log(e); // $.ajax({
+  //     method: "GET",
+  //     url: "/adoptable/search",
+  //     data: {
+  //         // name:
+  //     }
+  // })
+  // .done(function(data) {
+  // });
+});
 
 /***/ }),
 
