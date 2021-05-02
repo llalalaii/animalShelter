@@ -4,10 +4,10 @@ An application that monitors rescued animals health and progress as well as thei
 
 ## Installation
 
--   Create a database
+-   Create a database named db_felipe
 -   Rename .env.example to .env
 -   Make sure that the .env database is properly configured
--   Make sure that .env APP_NAME is "Animal Shelter"
+-   Make sure that .env APP_NAME is "El's Animal Shelter"
 
 Install composer dependencies
 
