@@ -36,9 +36,22 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="position">Position</label>
-                    <input type="text" name="position" id="position" class="form-control"
-                        value="{{$employee->position ?? ''}}">
+                    <label for="position">Position</label><br>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+
+                        <input type="radio" class="btn-check" name="position" id="employee_position" value="Employee"
+                            autocomplete="off" {{ (($animal->position??'')=="Employee")? "checked" : "" }}>
+                        <label class="btn btn-outline-success" for="employee_position">Employee</label>
+
+                        <input type="radio" class="btn-check" name="position" id="veterinarian_position"
+                            value="Veterinarian" autocomplete="off"
+                            {{ (($animal->position??'')=="Veterinarian")? "checked" : "" }}>
+                        <label class="btn btn-outline-success" for="veterinarian_position">Veterinarian</label>
+
+                        <input type="radio" class="btn-check" name="position" id="volunteer_position" value="Volunteer"
+                            autocomplete="off" {{ (($animal->position??'')=="Volunteer")? "checked" : "" }}>
+                        <label class="btn btn-outline-success" for="volunteer_position">Volunteer</label>
+                    </div>
                 </div>
 
                 <div class="mb-3">

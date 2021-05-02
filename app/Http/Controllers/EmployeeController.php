@@ -70,7 +70,8 @@ class EmployeeController extends Controller
         $employee = new User();
         $request->validate([
             'email' => [
-                'required|email',
+                'required',
+                'email',
                 'max:255',
                 'unique:users',
             ],
@@ -121,7 +122,8 @@ class EmployeeController extends Controller
         $employee = User::findorFail($id);
         $request->validate([
             'email' => [
-                'required|email',
+                'required',
+                'email',
                 'max:255',
                 Rule::unique('users')->ignore($employee),
             ],

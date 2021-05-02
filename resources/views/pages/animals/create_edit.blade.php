@@ -26,48 +26,39 @@
                 {{-- Since this page is used for both create and edit it is important that we check them in the value of each field. --}}
                 <div class="mb-3">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{$animal->name ?? ''}}"
-                        >
+                    <input type="text" name="name" id="name" class="form-control" value="{{$animal->name ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="breed">Breed</label>
-                    <input type="text" name="breed" id="breed" class="form-control" value="{{$animal->breed ?? ''}}"
-                        >
+                    <input type="text" name="breed" id="breed" class="form-control" value="{{$animal->breed ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="gender">Gender</label><br>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="gender" id="male_gender" value="Male"
-                            autocomplete="off" {{ (($animal->gender??'')=="Male")? "checked" : "" }} >
+                            autocomplete="off" {{ (($animal->gender??'')=="Male")? "checked" : "" }}>
                         <label class="btn btn-outline-success" for="male_gender">Male</label>
                         <input type="radio" class="btn-check" name="gender" id="female_gender" value="Female"
-                            autocomplete="off" {{ (($animal->gender??'')=="Female")? "checked" : "" }} >
+                            autocomplete="off" {{ (($animal->gender??'')=="Female")? "checked" : "" }}>
                         <label class="btn btn-outline-success" for="female_gender">Female</label>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="age">Age</label>
-                    <input type="number" name="age" id="age" class="form-control" value="{{$animal->age ?? ''}}"
-                        >
+                    <input type="number" name="age" id="age" class="form-control" value="{{$animal->age ?? ''}}">
                 </div>
 
-                <!-- <div class="mb-3">
-                    <label for="type">Type (e.g. Cat, Dog, etc.)</label>
-                    <input type="text" name="type" id="type" class="form-control" value="{{$animal->type ?? ''}}"
-                        >
-                </div> -->
-             
                 <div class="mb-3">
                     <label for="type">Animal Type</label><br>
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="type" id="dog_type" value="dog"
-                            autocomplete="off" {{ (($animal->type??'')=="dog")? "checked" : "" }} >
+                        <input type="radio" class="btn-check" name="type" id="dog_type" value="dog" autocomplete="off"
+                            {{ (($animal->type??'')=="dog")? "checked" : "" }}>
                         <label class="btn btn-outline-success" for="dog_type">Dog</label>
-                        <input type="radio" class="btn-check" name="type" id="cat_type" value="cat"
-                            autocomplete="off" {{ (($animal->type??'')=="cat")? "checked" : "" }} >
+                        <input type="radio" class="btn-check" name="type" id="cat_type" value="cat" autocomplete="off"
+                            {{ (($animal->type??'')=="cat")? "checked" : "" }}>
                         <label class="btn btn-outline-success" for="cat_type">Cat</label>
                     </div>
                 </div>
