@@ -16,8 +16,18 @@ class EmployeeController extends Controller
         $request->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
-            'position' => 'required|max:255',
+            'position' => 'required',
             'password' => 'required|min:6|max:255|confirmed',
+        ], [
+            'first_name.required' => 'First name is required.',
+            'first_name.max' => 'Maximum length is 255 characters.',
+            'last_name.required' => 'Last name is required.',
+            'last_name.max' => 'Maximum length is 255 characters.',
+            'position.required' => 'Position is required.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password should have minimum of 6 characters.',
+            'password.max' => 'Password should have maximum of 255 characters.',
+            'password.confirmed' => 'Password does not match.',
         ]);
     }
 

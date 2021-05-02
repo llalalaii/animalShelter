@@ -16,6 +16,12 @@ class RescuerController extends Controller
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'description' => 'required',
+        ], [
+            'first_name.required' => 'First name is required.',
+            'first_name.max' => 'Maximum length is 255 characters.',
+            'last_name.required' => 'Last name is required.',
+            'last_name.max' => 'Maximum length is 255 characters.',
+            'description.required' => 'Description is required.',
         ]);
     }
 

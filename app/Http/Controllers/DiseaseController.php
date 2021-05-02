@@ -15,7 +15,11 @@ class DiseaseController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description' => 'required',
+        ], [
+            'name.required' => 'Name is required.',
+            'name.max' => 'Maximum length is 255 characters.',
+            'description.required' => 'Description is required.',
         ]);
     }
 

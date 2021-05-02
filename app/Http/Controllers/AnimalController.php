@@ -21,6 +21,17 @@ class AnimalController extends Controller
             'gender' => 'required|max:255',
             'age' => 'required|integer',
             'type' => 'required|max:255',
+        ], [
+            'name.required' => 'First name is required.',
+            'name.max' => 'Maximum length is 255 characters.',
+            'breed.required' => 'Breed is required.',
+            'breed.max' => 'Maximum length is 255 characters.',
+            'gender.required' => 'Animal Gender is required.',
+            'gender.max' => 'Maximum length is 255 characters.',
+            'age.required' => 'Age is required',
+            'age.integer' => 'Age should be an integer.',
+            'type.required' => 'Animal Type is required.',
+            'type.max' => 'Maximum length is 255 characters.',
         ]);
     }
 

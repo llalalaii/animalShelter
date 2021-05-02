@@ -17,6 +17,11 @@ class InjuryController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'description' => 'required|max:255',
+        ], [
+            'name.required' => 'Injury name is required.',
+            'name.max' => 'Maximum length is 255 characters.',
+            'description.required' => 'Description is required.',
+         
         ]);
     }
 

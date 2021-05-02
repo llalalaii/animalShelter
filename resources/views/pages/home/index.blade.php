@@ -22,7 +22,7 @@
                     <h5 class="card-title">{{$item->name}}</h5>
                     <p class="card-text">{{$item->description_wrap}}</p>
                     <p class="fst-italic">{{$item->code}}</p>
-                    <a href="{{route('animals.show',$item->id)}}" class="btn btn-outline-primary">Animal Details</a>
+                    <a href="{{route('animals.show',$item->id)}}" class="btn btn-outline-primary">Animal Details . . .</a>
                 </div>
             </div>
             @endforeach
