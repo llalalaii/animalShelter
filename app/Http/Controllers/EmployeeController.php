@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
-    // Since store and update method both need validations, 
+    // Since store and update method both need validations,
     //I like to create a separate method so each time I need to validate a request I just call this method.
     private function validateRequest($request)
     {
@@ -37,7 +37,7 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //  I like to use $this->data to pass data to view as i find it easier and more convenient than compact(). 
+    //  I like to use $this->data to pass data to view as i find it easier and more convenient than compact().
     public function index()
     {
         $this->data['employees'] = User::all();
@@ -70,7 +70,7 @@ class EmployeeController extends Controller
         $employee = new User();
         $request->validate([
             'email' => [
-                'required',
+                'required|email',
                 'max:255',
                 'unique:users',
             ],
@@ -98,7 +98,7 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //  This method shows the page with edit form. 
+    //  This method shows the page with edit form.
     // However instead of using a different blade template I prefer using the same one as the create page, to make it easier to refactor.
     public function edit($id)
     {
@@ -121,7 +121,7 @@ class EmployeeController extends Controller
         $employee = User::findorFail($id);
         $request->validate([
             'email' => [
-                'required',
+                'required|email',
                 'max:255',
                 Rule::unique('users')->ignore($employee),
             ],
