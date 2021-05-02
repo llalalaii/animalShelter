@@ -18,13 +18,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdopterSeeder::class,
             AnimalSeeder::class,
-            DonationSeeder::class,
             RescuerSeeder::class,
             SicknessSeeder::class,
             UserSeeder::class,
             AnimalRescuerSeeder::class,
-            AdopterAnimalSeeder::class,
             AnimalSicknessSeeder::class,
+            AdopterAnimalSeeder::class,
         ]);
 
         DB::table('users')->insert([

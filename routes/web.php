@@ -3,12 +3,10 @@
 use App\Http\Controllers\AdopterController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\AuthController;
-// use App\Http\Controllers\CashController;
 use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InjuryController;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RescuerController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,12 +37,10 @@ Route::resource('adopters', AdopterController::class);
 // I wrapped the routes that needed to be under the protection of auth middleware so that unauthorized users will not be able to access them.
 Route::middleware(['web', 'auth'])->group(function () {
     Route::resource('employees', EmployeeController::class);
-    Route::resource('cash', CashController::class);
-    Route::resource('materials', MaterialController::class);
     Route::resource('diseases', DiseaseController::class);
     Route::resource('injuries', InjuryController::class);
 
-    // These routes are added because they are outside the resource template. 
+    // These routes are added because they are outside the resource template.
     Route::post('/animals/upload', [AnimalController::class, 'uploadPhotos'])->name('animals.upload');
     Route::delete('/animals/remove/photo/{id}', [AnimalController::class, 'removePhotos'])->name('animals.remove');
     Route::post('/animals/attachDetachSickness/', [AnimalController::class, 'attachDetachSickness'])->name('animals.attachDetachSickness');

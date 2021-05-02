@@ -25,20 +25,7 @@
                         href="{{route('adopters.index')}}">Adopters</a>
                 </li>
                 @if(Auth::check())
-                {{-- TEMPORARY DELETE MUNA SA DONATIONS --}}
-                {{-- <!-- <li class="nav-item dropdown text-center">
-                    <a class="nav-link dropdown-toggle {{Route::currentRouteName() == 'cash.index' || Route::currentRouteName() == 'cash.create' || Route::currentRouteName() == 'cash.edit' || Route::currentRouteName() == 'materials.index' || Route::currentRouteName() == 'materials.create' || Route::currentRouteName() == 'materials.edit' ? 'active':''}}"
-                        href="#" id="donationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Donations
-                    </a>
 
-                    <ul class="dropdown-menu" aria-labelledby="donationNav">
-                        <li><a class="dropdown-item {{Route::currentRouteName() == 'cash.index' || Route::currentRouteName() == 'cash.create' || Route::currentRouteName() == 'cash.edit' ? 'active':''}}"
-                                href="{{route('cash.index')}}">Cash</a></li>
-                        <li><a class="dropdown-item {{Route::currentRouteName() == 'materials.index' || Route::currentRouteName() == 'materials.create' || Route::currentRouteName() == 'materials.edit' ? 'active':''}}"
-                                href="{{route('materials.index')}}">Materials</a></li>
-                    </ul>
-                </li> --> --}}
                 <li class="nav-item text-center">
                     <a class="nav-link {{Route::currentRouteName() == 'employees.index' || Route::currentRouteName() == 'employees.create' || Route::currentRouteName() == 'employees.edit' ? 'active':''}}"
                         href="{{route('employees.index')}}">Employees</a>
@@ -81,6 +68,6 @@
         {{-- TEMPORARY SEARCH NAVBAR --}}
         <div class="topnav">
             <input type="text" placeholder="Search...">
-        </div> 
+        </div>
     </div>
 </nav>

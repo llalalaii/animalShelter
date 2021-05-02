@@ -3,8 +3,8 @@ quiz 1: db_felipe
 unit 1: animal resource CRUD with upload photos
 mp1: rescuers resource CRUD
 mp2: shelter personnel resource CRUD (employees, vet, volunteers)
------------------
 mp3: adopter  - one to many animal
+-----------------
 mp4: animal with sickness cannot be adopted
 mp5:
 -home should display adoptable animals

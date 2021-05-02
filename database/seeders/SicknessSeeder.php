@@ -16,7 +16,7 @@ class SicknessSeeder extends Seeder
     public function run()
     {
         Sickness::factory()
-            ->count(50)
+            ->count(5)
             ->state(new Sequence(
                 ['is_injury' => 0],
                 ['is_injury' => 1],

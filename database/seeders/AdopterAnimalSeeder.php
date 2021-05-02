@@ -15,10 +15,10 @@ class AdopterAnimalSeeder extends Seeder
      * @return void
      */
 
-    private function loop($take1, $skip1, $take2, $skip2)
+    private function loop($skip1, $skip2)
     {
-        $adopters = Adopter::skip($skip1)->take($take1)->get();
-        $animals = Animal::skip($skip2)->take($take2)->get();
+        $adopters = Adopter::skip($skip1)->take(1)->get();
+        $animals = Animal::doesntHave('sickness')->skip($skip2)->take(5)->get();
         foreach ($adopters as $adopter) {
             foreach ($animals as $animal) {
                 AdopterAnimal::firstOrCreate([
@@ -34,12 +34,10 @@ class AdopterAnimalSeeder extends Seeder
     public function run()
     {
         $skip1 = 0;
-        $take1 = 1;
         $skip2 = 0;
-        $take2 = 5;
-        $this->loop($take1, $skip1, $take2, $skip2);
-        $skip1 = 1;
-        $skip2 = 5;
-        $this->loop($take1, $skip1, $take2, $skip2);
+        $this->loop($skip1, $skip2);
+        // $skip1 = 1;
+        // $skip2 = 5;
+        // $this->loop($skip1, $skip2);
     }
 }

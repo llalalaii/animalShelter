@@ -16,8 +16,8 @@ class AnimalSicknessSeeder extends Seeder
      */
     public function run()
     {
-        $animals = Animal::paginate(10);
-        $sicknesses = Sickness::paginate(10);
+        $animals = Animal::paginate(5);
+        $sicknesses = Sickness::paginate(5);
 
         foreach ($animals as $animal) {
             foreach ($sicknesses as $sickness) {
