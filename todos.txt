@@ -11,14 +11,15 @@ mp6: multiple validation rules and custom error messages
 mp5:
 -home should display adoptable animals
 -use ajax to display
------------------
-mp7: postponed
--users can search for adoptable animals
--use ajax
 
 mp8:
 -authentication for employees
 -only vet are allowed to enter data on animal diseases and injuries
+
+-----------------
+mp7: postponed
+-users can search for adoptable animals
+-use ajax
 
 quiz2:
 -display info, health status of (dog and cat) with photos

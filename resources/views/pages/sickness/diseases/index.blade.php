@@ -4,10 +4,12 @@
 @include('partials.page-title',['title'=>'Diseases'])
 <div class="container">
     @include('partials.alerts')
+    @if(Auth::user()->position == 'Veterinarian')
     <a role="button" href="{{route('diseases.create')}}" class="btn btn-outline-success pr-3 mb-3">
         <span class="mdi mdi-plus"> </span>
         New disease
     </a>
+    @endif
 
     <table class="table table-hover table-striped table-responsive">
         <thead>
@@ -15,7 +17,9 @@
                 <th>Code</th>
                 <th>Name</th>
                 <th>Description</th>
+                @if(Auth::user()->position == 'Veterinarian')
                 <th>Actions</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -27,6 +31,7 @@
                 <td>{{$item->description_wrap}}</td>
                 <td>
                     {{-- this page is already wrap by auth middleware so i skip wrapping this in an @auth block --}}
+                    @if(Auth::user()->position == 'Veterinarian')
                     <form action="{{route('diseases.destroy',$item->id)}}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -37,6 +42,7 @@
                             <span class="mdi mdi-delete"></span>
                         </button>
                     </form>
+                    @endif
                 </td>
             </tr>
 

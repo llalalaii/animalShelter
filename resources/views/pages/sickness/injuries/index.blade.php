@@ -4,10 +4,12 @@
 @include('partials.page-title',['title'=>'Injuries'])
 <div class="container">
     @include('partials.alerts')
+    @if(Auth::user()->position == 'Veterinarian')
     <a role="button" href="{{route('injuries.create')}}" class="btn btn-outline-success pr-3 mb-3">
         <span class="mdi mdi-plus"> </span>
         New injury
     </a>
+    @endif
 
     <table class="table table-hover table-striped table-responsive">
         <thead>
@@ -15,7 +17,9 @@
                 <th>Code</th>
                 <th>Name</th>
                 <th>Description</th>
+                @if(Auth::user()->position == 'Veterinarian')
                 <th>Actions</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -25,6 +29,7 @@
                 <td>{{$item->code}}</td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->description_wrap}}</td>
+                @if(Auth::user()->position == 'Veterinarian')
                 <td>
                     {{-- this page is already wrap by auth middleware so i skip wrapping this in an @auth block --}}
                     <form action="{{route('injuries.destroy',$item->id)}}" method="POST">
@@ -38,6 +43,7 @@
                         </button>
                     </form>
                 </td>
+                @endif
             </tr>
 
             @empty
