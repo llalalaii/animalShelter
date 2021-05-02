@@ -17,7 +17,7 @@
         {{-- we show all animals that are rehabilitated (with no sickness) --}}
         <div class="d-flex flex-wrap justify-content-around">
             @foreach ($animals as $item)
-            <div class="card mx-3 my-3 home-card">
+            <div class="card mx-1 my-1 home-card">
                 <div class="card-body">
                     <h5 class="card-title">{{$item->name}}</h5>
                     <p class="card-text">{{$item->description_wrap}}</p>

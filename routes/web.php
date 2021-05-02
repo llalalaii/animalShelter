@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdopterController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CashController;
+// use App\Http\Controllers\CashController;
 use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InjuryController;

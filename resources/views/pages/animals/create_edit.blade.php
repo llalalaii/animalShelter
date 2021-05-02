@@ -54,10 +54,22 @@
                         >
                 </div>
 
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="type">Type (e.g. Cat, Dog, etc.)</label>
                     <input type="text" name="type" id="type" class="form-control" value="{{$animal->type ?? ''}}"
                         >
+                </div> -->
+             
+                <div class="mb-3">
+                    <label for="type">Animal Type</label><br>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="type" id="dog_type" value="dog"
+                            autocomplete="off" {{ (($animal->type??'')=="dog")? "checked" : "" }} >
+                        <label class="btn btn-outline-success" for="dog_type">Dog</label>
+                        <input type="radio" class="btn-check" name="type" id="cat_type" value="cat"
+                            autocomplete="off" {{ (($animal->type??'')=="cat")? "checked" : "" }} >
+                        <label class="btn btn-outline-success" for="cat_type">Cat</label>
+                    </div>
                 </div>
 
                 <div class="mb-3">

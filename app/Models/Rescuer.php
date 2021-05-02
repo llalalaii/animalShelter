@@ -13,7 +13,7 @@ class Rescuer extends Model
     // This accessor is defined to put a format to our ID and make look professional.
     public function getCodeAttribute()
     {
-        return "GCQR - " . str_pad($this->id, 3, 0, STR_PAD_LEFT);
+        return "Res - " . str_pad($this->id, 3, 0, STR_PAD_LEFT);
     }
 
     // This accessor is defined so that we can access full_name of adopters when needed.

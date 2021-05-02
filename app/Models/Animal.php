@@ -15,7 +15,7 @@ class Animal extends Model
     // This accessor is defined to put a format to our ID and make look professional.
     public function getCodeAttribute()
     {
-        return "GCQA - " . str_pad($this->id, 3, 0, STR_PAD_LEFT);
+        return "AN - " . str_pad($this->id, 3, 0, STR_PAD_LEFT);
     }
 
     // This accessor limits the description to a specified characters to wrap them when needed.

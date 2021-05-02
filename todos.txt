@@ -1,10 +1,3 @@
-BTIT Web Programming
-
-Animal Shelter Laravel web app 
-the (enter here shelter name) animal shelter is a non profit organization that rescues stray dogs and cats. the shelter records the animal's breed, gender, approximate age and   other relevant information. 
-they are also checked for diseases or injuries by volunteer veterinarians.
-once these strays are rehabilitated, they are now ready for adoption by qualified individuals.
-
 Quiz 1.
 Create database tables using migration scripts. database name should be the in this format: db_your_lastName eg: db_reyes db_delos_santos etc
 

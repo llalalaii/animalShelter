@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <span class="mdi mdi-home-variant"></span>
-            <!-- {{config('app.name')}} -->
-            El's Animal Shelter
+            {{config('app.name')}}
+            {{-- El's Animal Shelter --}}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#top-navbar"
             aria-controls="top-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
                 </li>
                 @if(Auth::check())
                 {{-- TEMPORARY DELETE MUNA SA DONATIONS --}}
-                <!-- <li class="nav-item dropdown text-center">
+                {{-- <!-- <li class="nav-item dropdown text-center">
                     <a class="nav-link dropdown-toggle {{Route::currentRouteName() == 'cash.index' || Route::currentRouteName() == 'cash.create' || Route::currentRouteName() == 'cash.edit' || Route::currentRouteName() == 'materials.index' || Route::currentRouteName() == 'materials.create' || Route::currentRouteName() == 'materials.edit' ? 'active':''}}"
                         href="#" id="donationNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Donations
@@ -38,7 +38,7 @@
                         <li><a class="dropdown-item {{Route::currentRouteName() == 'materials.index' || Route::currentRouteName() == 'materials.create' || Route::currentRouteName() == 'materials.edit' ? 'active':''}}"
                                 href="{{route('materials.index')}}">Materials</a></li>
                     </ul>
-                </li> -->
+                </li> --> --}}
                 <li class="nav-item text-center">
                     <a class="nav-link {{Route::currentRouteName() == 'employees.index' || Route::currentRouteName() == 'employees.create' || Route::currentRouteName() == 'employees.edit' ? 'active':''}}"
                         href="{{route('employees.index')}}">Employees</a>

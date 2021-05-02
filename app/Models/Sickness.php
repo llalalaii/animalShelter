@@ -13,7 +13,7 @@ class Sickness extends Model
     // This accessor is defined to put a format to our ID and make look professional.
     public function getCodeAttribute()
     {
-        return "GCQS - " . str_pad($this->id, 3, 0, STR_PAD_LEFT);
+        return "SD - " . str_pad($this->id, 3, 0, STR_PAD_LEFT);
     }
 
     // This accessor is to capitalize the first letter of the name
