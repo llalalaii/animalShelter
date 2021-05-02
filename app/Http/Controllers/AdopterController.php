@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class AdopterController extends Controller
 {
-    // Since store and update method both need validations, 
+    // Since store and update method both need validations,
     //I like to create a separate method so each time I need to validate a request I just call this method.
     private function validateRequest($request)
     {
@@ -34,7 +34,7 @@ class AdopterController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //  I like to use $this->data to pass data to view as i find it easier and more convenient than compact(). 
+    //  I like to use $this->data to pass data to view as i find it easier and more convenient than compact().
     public function index()
     {
         $this->data['adopters'] = Adopter::all();
@@ -77,7 +77,7 @@ class AdopterController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // This method used an ID to show a page with specifics. 
+    // This method used an ID to show a page with specifics.
     public function show($id)
     {
         $this->data['adopter'] = Adopter::with('animals')->findorFail($id);
@@ -93,7 +93,7 @@ class AdopterController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //  This method shows the page with edit form. 
+    //  This method shows the page with edit form.
     // However instead of using a different blade template I prefer using the same one as the create page, to make it easier to refactor.
     public function edit($id)
     {

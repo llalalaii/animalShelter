@@ -25,14 +25,12 @@
                 {{-- Since this page is used for both create and edit it is important that we check them in the value of each field. --}}
                 <div class="mb-3">
                     <label for="name">Donator name</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{$cash->name ?? ''}}"
-                        required>
+                    <input type="text" name="name" id="name" class="form-control" value="{{$cash->name ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="value">Amount</label>
-                    <input type="number" name="value" id="value" class="form-control" value="{{$cash->value ?? ''}}"
-                        required>
+                    <input type="number" name="value" id="value" class="form-control" value="{{$cash->value ?? ''}}">
                 </div>
 
                 <div class="d-grid gap-2 col-6 mx-auto">

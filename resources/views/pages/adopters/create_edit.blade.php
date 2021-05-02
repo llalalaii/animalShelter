@@ -29,13 +29,13 @@
                 <div class="mb-3">
                     <label for="first_name">First Name</label>
                     <input type="text" name="first_name" id="first_name" class="form-control"
-                        value="{{$adopter->first_name ?? ''}}" required>
+                        value="{{$adopter->first_name ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="last_name">Last Name</label>
                     <input type="text" name="last_name" id="last_name" class="form-control"
-                        value="{{$adopter->last_name ?? ''}}" required>
+                        value="{{$adopter->last_name ?? ''}}">
                 </div>
 
                 <div class="mb-3">

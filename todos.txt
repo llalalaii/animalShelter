@@ -1,57 +1,50 @@
-Quiz 1.
-Create database tables using migration scripts. database name should be the in this format: db_your_lastName eg: db_reyes db_delos_santos etc
 
-Code requirements for the web application :
-Unit 1 create CRUD controller, models and views for animals. animals should be categorized into different types of animals. upload photos of animals. use resource controllers. (20pts) 4hrs
+quiz 1: db_felipe
+unit 1: animal resource CRUD with upload photos
+mp1: rescuers resource CRUD
 
-mp 1 create CRUD controller, models and views for rescuers. rescuers can bring one or more animals to the shelter. use resource controllers. (15pts) 2hrs
+-----------------
 
-mp 2 create CRUD controller, models and views for shelter personnel. personnel can be employees, veterinarians or volunteers. use resource controllers. (15pts)
+mp2: shelter personnel resource CRUD (employees, vet, volunteers)
+mp3: adopter  - one to many animal
+mp4: animal with sickness cannot be adopted
+mp5:
+-home should display adoptable animals
+-use ajax to display
+mp6: multiple validation rules and custom error messages
+mp7:
+-users can search for adoptable animals
+-use ajax
+mp8:
+-authentication for employees
+-only vet are allowed to enter data on animal diseases and injuries
+quiz2:
+-display health status of (dog and cat) with photos
+-use ajax to view animal health
 
-mp3 create CRUD controller, models and views for adopters. adopters can  adopt one or more different types of animal. (15pts) 
-mp3.1 animals that have been adopted should not be shown on the landing page. 5pts
+quiz3:
+-display adopters and animals they adopted
+-use ajax to view adopters and animals
 
-mp4 create CRUD controller, models and views for common animal diseases and injuries. An animal can have one or more disease or injury when they are turned over to the shelter. (15pts) 
-mp4.1 animals that are not fully cured or rehabilitated cannot be adopted. 5pts
+unit2:
+-jquery validation on all CRUD script
+
+term test:
+1.1 create a contact form that will send a message to the shelter that can be viewed by authenticated employees
+1.2 authenticated user can view and delete the message in the contact form
+1.3
+- send the email to admin@shelter_name
+- send email using events after the contact form is submitted
+
+1.4 use ajax to send the form to an API endpoint
 
 
--------------------------------------------------------------------------------------------------
-mp 5.1 the front page of the web app should display all adoptable animals. 10pts
-   5.2 create an API endpoint that will display all adoptable animals. use jQuery AJAX calls. 15pts
+project notes:
+-use eager loading
+-full credit score will be given upon proper explanation
+- additional points will be given if project has zero or few errors and finished early
+- Additional points will be given if UI design is clean, apt and has easy to use navigation
+-
 
-mp6 apply multiple validation rules and custom error messages on all CRUD scripts. one validation rule per field will not be accepted. (15pts)
 
-mp7 users can search for adoptable animals. 10pts
-7.1 implement search functions using jQuery AJAX 15pts
 
-mp8 create basic authentication for employees. only authenticated employees are allowed to enter data. protect routes using auth middleware. 10pts
-
-8.1 only veterinarians are  allowed to enter data on animal diseases and injuries module. 15pts
-
-quiz 2 the app can display the information and health status of each dog or cat (with photos) 10pts
-2.1 implement viewing of animal health status using jQuery AJAX 15pts
-
-quiz 3 the app can display the adopters and the animals they adopted. 10pts
-3.1 implement viewing of adopters and animals functions using jQuery AJAX 15pts
-
-unit 2 use jQuery validation on all CRUD scripts. 10pts
-
-term test (choose any one of the following) 30pts
-
-1.1 create a contact form that will send a message to the shelter. all messages can be viewed by authenticated employees. 10pts
-
-1.2 create a contact form that will send a message to the shelter. all messages can be viewed and deleted by authenticated employees. 15pts
-
-1.3 create a contact form that will send a message and an email to the shelter. all messages can be viewed and deleted by authenticated employees. send the email to admin@shelter_name. send the email using events. the email will be sent when the contact form is submitted. 25pts
-
-1.4 create a contact form that will send a message and an email to the shelter. all messages can be viewed and deleted by authenticated employees. send the email to admin@shelter_name. send the email using events. the email will be sent when the contact form is submitted. use jQuery to submit the form to an API endpoint. 30pts
-
-project notes
-use eager loading and laravel form collective.
-
-full credit(score) will not be given if you do not clearly answer questions during project defense. 
-
-Additional points will be given if project has zero or few errors and finished early. 
-Additional points will be given if UI design is clean, apt and has easy to use navigation 
-Progress will be checked every meeting.
-this is a one student project.

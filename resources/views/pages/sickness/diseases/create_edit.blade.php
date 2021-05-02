@@ -25,8 +25,7 @@
                 {{-- Since this page is used for both create and edit it is important that we check them in the value of each field. --}}
                 <div class="mb-3">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{$disease->name ?? ''}}"
-                        required>
+                    <input type="text" name="name" id="name" class="form-control" value="{{$disease->name ?? ''}}">
                 </div>
 
                 <div class="mb-3">

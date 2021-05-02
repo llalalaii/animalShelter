@@ -25,20 +25,18 @@
                 {{-- Since this page is used for both create and edit it is important that we check them in the value of each field. --}}
                 <div class="mb-3">
                     <label for="name">Material</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{$material->name ?? ''}}"
-                        required>
+                    <input type="text" name="name" id="name" class="form-control" value="{{$material->name ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="value">Amount</label>
-                    <input type="number" name="value" id="value" class="form-control" value="{{$material->value ?? ''}}"
-                        required>
+                    <input type="number" name="value" id="value" class="form-control"
+                        value="{{$material->value ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="unit">Unit</label>
-                    <input type="text" name="unit" id="unit" class="form-control" value="{{$material->unit ?? ''}}"
-                        required>
+                    <input type="text" name="unit" id="unit" class="form-control" value="{{$material->unit ?? ''}}">
                 </div>
 
                 <div class="d-grid gap-2 col-6 mx-auto">

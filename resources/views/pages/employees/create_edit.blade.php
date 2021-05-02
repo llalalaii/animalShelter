@@ -26,36 +26,34 @@
                 <div class="mb-3">
                     <label for="first_name">First Name</label>
                     <input type="text" name="first_name" id="first_name" class="form-control"
-                        value="{{$employee->first_name ?? ''}}" required>
+                        value="{{$employee->first_name ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="last_name">Last Name</label>
                     <input type="text" name="last_name" id="last_name" class="form-control"
-                        value="{{$employee->last_name ?? ''}}" required>
+                        value="{{$employee->last_name ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="position">Position</label>
                     <input type="text" name="position" id="position" class="form-control"
-                        value="{{$employee->position ?? ''}}" required>
+                        value="{{$employee->position ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" value="{{$employee->email ?? ''}}"
-                        required>
+                    <input type="email" name="email" id="email" class="form-control" value="{{$employee->email ?? ''}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" required>
+                    <input type="password" name="password" id="password" class="form-control">
                 </div>
 
                 <div class="mb-3">
                     <label for="password_confirmation">Confirm Password</label>
-                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
-                        required>
+                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                 </div>
 
                 <div class="d-grid gap-2 col-6 mx-auto">
