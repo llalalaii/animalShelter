@@ -1,0 +1,45 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-item a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    padding-left: 10px;
+}
+.nav-link .active {
+    color: red;
+}
+.content-wrapper {
+    margin-top: 2%;
+}
+
+.dropdown-menu > li > a:hover {
+    background-image: none;
+    background-color: teal;
+}
+
+#login-wrapper {
+    margin-top: 15%;
+}
+
+.carousel-item img {
+    max-height: 75vh;
+}
+
+#home-content {
+    margin-bottom: 3%;
+}
+
+.home-card {
+    margin: 0 auto;
+    max-width: 250px;
+}
+
