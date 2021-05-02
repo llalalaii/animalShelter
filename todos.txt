@@ -16,10 +16,11 @@ mp8:
 -authentication for employees
 -only vet are allowed to enter data on animal diseases and injuries
 
------------------
-mp7: postponed
+mp7:
 -users can search for adoptable animals
 -use ajax
+
+-----------------
 
 quiz2:
 -display info, health status of (dog and cat) with photos

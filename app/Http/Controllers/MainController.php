@@ -25,7 +25,7 @@ class MainController extends Controller
 
     public function adoptableSearch($name)
     {
-        $animals = Animal::where('name', 'LIKE', '%', $name)->get();
+        $animals = Animal::where('name', 'LIKE', '%' . $name . '%')->get();
         return Response::json(compact('animals'));
     }
 }
