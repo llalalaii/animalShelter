@@ -20,15 +20,18 @@ mp7:
 -users can search for adoptable animals
 -use ajax
 
+quiz3:
+-display adopters and animals they adopted
+-use ajax to view adopters and animals
+
+
 -----------------
+sickness view
+replace all accordion with group list 
 
 quiz2:
 -display info, health status of (dog and cat) with photos
 -use ajax to view animal health
-
-quiz3:
--display adopters and animals they adopted
--use ajax to view adopters and animals
 
 unit2:
 -jquery validation on all CRUD script

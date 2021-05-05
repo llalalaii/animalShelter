@@ -87,9 +87,13 @@ class AdopterController extends Controller
     public function show($id)
     {
         $this->data['adopter'] = Adopter::with('animals')->findorFail($id);
-        // We are only going to fetch animals which are not adopted.
-        $this->data['animals'] = Animal::doesntHave('sickness')->where('is_adopted', 0)->get();
-        return view('pages.adopters.show', $this->data);
+        if(request()->ajax()){
+            return response()->json($this->data);
+        } else {
+            // We are only going to fetch animals which are not adopted.
+            $this->data['animals'] = Animal::doesntHave('sickness')->where('is_adopted', 0)->get();
+            return view('pages.adopters.show', $this->data);
+        }
     }
 
     /**

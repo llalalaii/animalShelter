@@ -35,7 +35,7 @@
                     <form action="{{route('adopters.destroy',$item->id)}}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <a href="{{route('adopters.show',$item->id)}}" class="btn btn-outline-info py-0">
+                        <a data-id="{{$item->id}}" class="btn btn-outline-info py-0 showAdopterButton">
                             <span class="mdi mdi-eye-outline"></span>
                         </a>
                         <a href="{{route('adopters.edit',$item->id)}}" class="btn btn-outline-primary py-0">
@@ -46,7 +46,7 @@
                         </button>
                     </form>
                     @else
-                    <a href="{{route('adopters.show',$item->id)}}" class="btn btn-outline-info py-0">
+                    <a data-id="{{$item->id}}" class="btn btn-outline-info py-0 showAdopterButton">
                         <span class="mdi mdi-eye-outline"></span>
                     </a>
                     @endauth
@@ -62,5 +62,66 @@
             @endforelse
         </tbody>
     </table>
+
+
+    <div class="modal fade" id="adopterModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="card-description" class="fst-italic"></p>
+                    <ul id="animalList" class="list-group"></ul>
+                    <a role="button" class="btn btn-outline-success adoptButton mt-4">
+                        <span class="mdi mdi-plus"></span>
+                        Adopt
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function(){
+        $('.showAdopterButton').click(function(){
+            $.ajax({
+                method: "GET",
+                url: `/adopters/${$(this).data('id')}`,
+                success: function(data){
+                    $('#modalTitle').text(`${data.adopter.first_name } ${data.adopter.last_name}`);
+                    $('#card-description').text(data.adopter.description);
+                    $('#animalList').empty();
+                    data.adopter.animals.forEach(function (animal){
+                        $('#animalList').append(`
+                            <li class="list-group-item d-flex justify-content-between">
+                                <p class="mb-0">${animal.name} (${animal.breed})</p>
+                                <a href="/animals/${animal.id}" target="_blank">View</a>
+                            </li>
+                        `);
+                    });
+                    $('.adoptButton').attr('href', '/adopters/'+data.adopter.id);
+                    $('#adopterModal').modal('show');
+                }
+            });
+        })
+
+        $('.showAdopterPets').click(function(){
+            $.ajax({
+                method: "GET",
+                url: `/adopters/${$(this).data('id')}`,
+                success: function(data){
+                    $('#modalTitle').text(`${data.adopter.first_name } ${data.adopter.last_name}`);
+                    $('#card-description').text(data.adopter.description);
+                    $('#adopterModal').modal('show');
+                }
+            });
+        });
+    });
+</script>
 @endsection
