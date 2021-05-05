@@ -19,6 +19,7 @@
 @section('js')
 <script>
     const animalWrapper = $('#adoptable-wrapper');
+    const homeLoading = $('#homeLoading');
 
     function renderAnimals(animals){
         animals.forEach(item => {
@@ -26,7 +27,8 @@
             animalWrapper.append(`
                 <div class="card mx-1 my-1 home-card">
                     <div class="card-body">
-                        <h5 class="card-title">${item.name}</h5>
+                        <h5 class="card-title"><b>${item.name}</b></h5>
+                        <h6 class="card-title fst-italic">${item.breed}</h6>
                         <p class="card-text">${item.description}</p>
                         <p class="fst-italic">${item.code}</p>
                         <a href="/animals/${item.id}" class="btn btn-outline-primary">Animal Details . . .</a>
@@ -35,14 +37,14 @@
             `);
 
             // old way of appending
-            // var html = '<div class="card mx-1 my-1 home-card">';
-            // html += '<div class="card-body">';
-            // html += '<h5 class="card-title">'+item.name+'</h5>';
-            // html += '<p class="card-text">'+item.description+'</p>';
-            // html += '<p class="fst-italic">'+item.code+'</p>'
-            // html += '<a href="/animals/'+item.id+'" class="btn btn-outline-primary">Animal Details . . .</a>'
-            // html += '</div></div>';
-            // $('#adoptable-wrapper').append(html);
+                // var html = '<div class="card mx-1 my-1 home-card">';
+                // html += '<div class="card-body">';
+                // html += '<h5 class="card-title">'+item.name+'</h5>';
+                // html += '<p class="card-text">'+item.description+'</p>';
+                // html += '<p class="fst-italic">'+item.code+'</p>'
+                // html += '<a href="/animals/'+item.id+'" class="btn btn-outline-primary">Animal Details . . .</a>'
+                // html += '</div></div>';
+                // $('#adoptable-wrapper').append(html);
         });
     }
 
@@ -54,18 +56,39 @@
         `);
     }
 
-    $( document ).ready(function() {
+    function loadAdoptableAnimals(url, noAnimalsMessage, query = null){
         $.ajax({
             method: "GET",
-            url: "/adoptable",
+            url: url,
             beforeSend: function(){
-                $('#homeLoading').removeClass('d-none');
+                if(query) {
+                    animalWrapper.empty();
+                    $('.alert-danger').remove();
+                } 
+                homeLoading.removeClass('d-none');
             },
             success: function(data){
-                $('#homeLoading').addClass('d-none');
-                if(!data.animals.length) noAnimals('No adoptable animals.');
+                homeLoading.addClass('d-none');
+                if(!data.animals.length) noAnimals(noAnimalsMessage);
                 renderAnimals(data.animals);
-            }
+            },
+        })
+    }
+
+    $( document ).ready(function() {
+        loadAdoptableAnimals('/adoptable', 'No adoptable animals.');
+  
+        // I used debounce to send a request after 500ms of typing
+        var debounce;
+        $('#main-searchbar').on('input', function (e) {
+            const query = e.target.value;
+            clearTimeout(debounce);
+
+            debounce = setTimeout(
+                function () {
+                    loadAdoptableAnimals(`/adoptable/${query}`, 'No result.', query);
+                },
+            500);
         });
     });
 </script>

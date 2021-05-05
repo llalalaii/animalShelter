@@ -44,7 +44,7 @@ term test:
 
 
 project notes:
--use eager loading
+ ea-useger loading
 -full credit score will be given upon proper explanation
 - additional points will be given if project has zero or few errors and finished early
 - Additional points will be given if UI design is clean, apt and has easy to use navigation

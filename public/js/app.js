@@ -13,44 +13,6 @@ $('.session-alert').delay(3000).fadeOut('slow'); // this code is to submit a log
 $('#logoutBtn').click(function () {
   $('#logoutForm').submit();
 });
-var animalWrapper = $('#adoptable-wrapper');
-
-function renderAnimals(animals) {
-  animals.forEach(function (item) {
-    animalWrapper.append("\n            <div class=\"card mx-1 my-1 home-card\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">".concat(item.name, "</h5>\n                    <p class=\"card-text\">").concat(item.description, "</p>\n                    <p class=\"fst-italic\">").concat(item.code, "</p>\n                    <a href=\"/animals/").concat(item.id, "\" class=\"btn btn-outline-primary\">Animal Details . . .</a>\n                </div>\n            </div>\n        "));
-  });
-}
-
-function noAnimals(message) {
-  animalWrapper.before("\n        <div class=\"alert alert-danger text-center\">\n            ".concat(message, "\n        </div>\n    "));
-}
-
-function searchAdoptable(query) {
-  $.ajax({
-    method: "GET",
-    url: "/adoptable/".concat(query),
-    beforeSend: function beforeSend() {
-      animalWrapper.empty();
-      $('.alert-danger').remove();
-      $('#homeLoading').removeClass('d-none');
-    },
-    success: function success(data) {
-      $('#homeLoading').addClass('d-none');
-      if (!data.animals.length) noAnimals('No result.');
-      renderAnimals(data.animals);
-    }
-  });
-} // I used debounce to send a request after 500ms of typing
-
-
-var debounce;
-$('#main-searchbar').on('input', function (e) {
-  var query = e.target.value;
-  clearTimeout(debounce);
-  debounce = setTimeout(function () {
-    searchAdoptable(query);
-  }, 500);
-});
 
 /***/ }),
 
