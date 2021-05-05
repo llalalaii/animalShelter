@@ -81,7 +81,9 @@ class DiseaseController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->data['sickness'] = Sickness::find($id);
+
+        return view('pages.sickness.diseases.show',$this->data);
     }
 
     /**

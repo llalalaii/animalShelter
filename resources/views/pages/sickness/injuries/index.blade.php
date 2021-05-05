@@ -17,9 +17,7 @@
                 <th>Code</th>
                 <th>Name</th>
                 <th>Description</th>
-                @if(Auth::user()->position == 'Veterinarian')
                 <th>Actions</th>
-                @endif
             </tr>
         </thead>
         <tbody>
@@ -29,21 +27,23 @@
                 <td>{{$item->code}}</td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->description_wrap}}</td>
-                @if(Auth::user()->position == 'Veterinarian')
                 <td>
-                    {{-- this page is already wrap by auth middleware so i skip wrapping this in an @auth block --}}
-                    <form action="{{route('injuries.destroy',$item->id)}}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <a href="{{route('injuries.edit',$item->id)}}" class="btn btn-outline-primary py-0">
-                            <span class="mdi mdi-pencil"></span>
-                        </a>
-                        <button class="btn btn-outline-danger py-0">
-                            <span class="mdi mdi-delete"></span>
-                        </button>
-                    </form>
+                    <a href="{{route('injuries.show',$item->id)}}" class="btn btn-outline-info py-0">
+                        <span class="mdi mdi-eye-outline"></span>
+                    </a>
+                    @if(Auth::user()->position == 'Veterinarian')
+                        <form action="{{route('injuries.destroy',$item->id)}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <a href="{{route('injuries.edit',$item->id)}}" class="btn btn-outline-primary py-0">
+                                <span class="mdi mdi-pencil"></span>
+                            </a>
+                            <button class="btn btn-outline-danger py-0">
+                                <span class="mdi mdi-delete"></span>
+                            </button>
+                        </form>
+                    @endif
                 </td>
-                @endif
             </tr>
 
             @empty

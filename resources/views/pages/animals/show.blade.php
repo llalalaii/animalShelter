@@ -127,9 +127,10 @@
                         Age: {{$animal->age}}
                     </li>
                 </ul>
-
-
             </div>
+
+            <h3 class="text-center mb-1">Sickness</h3>
+            <hr class="mt-0">
 
             {{-- this part is only for authorized users where they added a disease or injury to an animal if necessary --}}
             @auth
@@ -163,56 +164,26 @@
             @endauth
 
             {{-- this part list the sickness of an animal and also has a button to remove them once the animal is rehabilitated. --}}
-            <div class="card w-100">
-                @auth
-                <form action="{{route('animals.attachDetachSickness')}}" method="POST" id="deleteForm">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$animal->id}}">
-                    <input type="hidden" name="item_id" id="item_id">
-                </form>
-                @endauth
-
-                {{-- this part shows an accordion and loops the sickness --}}
-                <div class="accordion" id="accordionExample">
-                    @forelse ($animal->sickness as $item)
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading{{$item->id}}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse{{$item->id}}" aria-expanded="false"
-                                aria-controls="collapse{{$item->id}}">
-                                {{$item->code}}&nbsp;-&nbsp;<b>{{$item->name}}</b>
-
-                                {{-- this part is for authorized user which removes the sickness of an animal --}}
-                                @auth
-                                <span class="mdi mdi-delete text-danger deleteBtn" data-item_id="{{$item->id}}"></span>
-                                @endauth
-                            </button>
-                        </h2>
-                        <div id="collapse{{$item->id}}" class="accordion-collapse collapse"
-                            aria-labelledby="heading{{$item->id}}" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                {{$item->description_wrap}}
-                            </div>
-                        </div>
-                    </div>
-                    @empty
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#NoDatacollapse" aria-expanded="false" aria-controls="NoDatacollapse">
-                                Extremely Healthy.
-                            </button>
-                        </h2>
-                        <div id="NoDatacollapse" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                No sickness detected.
-                            </div>
-                        </div>
-                    </div>
-                    @endforelse
+            @auth
+            <form action="{{route('animals.attachDetachSickness')}}" method="POST" id="deleteForm">
+                @csrf
+                <input type="hidden" name="id" value="{{$animal->id}}">
+                <input type="hidden" name="item_id" id="item_id">
+            </form>
+            @endauth
+            <ul class="list-group">
+                @forelse ($animal->sickness as $item)
+                    <li class="list-group-item d-flex justify-content-between">
+                        <p class="mb-0">{{$item->name}}</p>
+                        
+                        <a @if ($item->is_injury) href="{{route('injuries.show',$item->id)}}" @else href="{{route('diseases.show',$item->id)}}" @endif>View</a>
+                    </li>
+                @empty
+                <div class="alert alert-success text-center">
+                    Healthy!
                 </div>
-            </div>
+                @endforelse
+            </ul>
         </div>
     </div>
 </div>
@@ -228,3 +199,4 @@
 </script>
 @endauth
 @endsection
+
