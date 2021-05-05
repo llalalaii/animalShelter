@@ -174,7 +174,12 @@
             <ul class="list-group">
                 @forelse ($animal->sickness as $item)
                     <li class="list-group-item d-flex justify-content-between">
-                        <p class="mb-0">{{$item->name}}</p>
+                        <p class="mb-0">
+                            {{$item->code}}. <i>{{$item->name}}</i>
+                            @auth
+                                <span class="mdi mdi-delete text-danger deleteBtn" data-item_id="{{$item->id}}"></span>
+                            @endauth
+                        </p>
                         
                         <a @if ($item->is_injury) href="{{route('injuries.show',$item->id)}}" @else href="{{route('diseases.show',$item->id)}}" @endif>View</a>
                     </li>
