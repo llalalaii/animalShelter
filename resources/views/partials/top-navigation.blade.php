@@ -44,6 +44,12 @@
                                 href="{{route('injuries.index')}}">Injuries</a></li>
                     </ul>
                 </li>
+                
+                <li class="nav-item text-center">
+                    <a class="nav-link {{Route::currentRouteName() == 'contact.index' || Route::currentRouteName() == 'contact.create' || Route::currentRouteName() == 'contact.edit' ? 'active':''}}"
+                        href="{{route('contact.index')}}">Contact Us</a>
+                </li>
+
                 @endif
                 @if(Auth::check())
                 <li class="nav-item dropdown text-center">
@@ -65,7 +71,7 @@
                 @endif
             </ul>
         </div>
-        {{-- TEMPORARY SEARCH NAVBAR --}}
+     
         @if(Route::is('home'))
         <div class="topnav">
             <input type="text" placeholder="Search..." id="main-searchbar">
