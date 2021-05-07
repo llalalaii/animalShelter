@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdopterController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InjuryController;
@@ -25,6 +26,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'login_submit'])->name('login.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::name('contact.form.')->prefix('contact')->group(function () {
+    Route::get('/', [ContactController::class, 'index'])->name('index');
+    Route::post('/submit', [ContactController::class, 'submit'])->name('submit');
+});
 
 // These route shows the main page where we showcase the animals without any sickness (rehabilitated) and are ready for adoption.
 Route::get('/', [MainController::class, 'home'])->name('home');
