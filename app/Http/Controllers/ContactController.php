@@ -12,6 +12,24 @@ class ContactController extends Controller
         return view('pages.contact.index');
     }
 
+    public function list()
+    {
+        $contacts = Contact::all();
+        return view('pages.contact.list', compact('contacts'));
+    }
+
+    public function show($id)
+    {
+        $contact = Contact::findOrFail($id);
+        return view('pages.contact.show', compact('contact'));
+    }
+
+    public function destroy($id)
+    {
+        Contact::destroy($id);
+        return redirect()->route('contact.list')->withSuccess('Message successfully deleted!');
+    }
+
     public function submit(Request $request)
     {
         $request->validate([

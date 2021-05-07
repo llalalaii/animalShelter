@@ -37,8 +37,8 @@ unit2:
 -jquery validation on all CRUD script
 
 term test:
-1.1 create a contact form that will send a message to the shelter that can be viewed by authenticated employees
-1.2 authenticated user can view and delete the message in the contact form
+1.1 create a contact form that will send a message to the shelter that can be viewed by authenticated employees (done)
+1.2 authenticated user can view and delete the message in the contact form (done)
 1.3
 - send the email to admin@shelter_name
 - send email using events after the contact form is submitted

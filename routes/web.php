@@ -50,6 +50,12 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::resource('diseases', DiseaseController::class);
     Route::resource('injuries', InjuryController::class);
 
+    Route::name('contact.')->prefix('contact')->group(function () {
+        Route::get('/list', [ContactController::class, 'list'])->name('list');
+        Route::get('/{id}', [ContactController::class, 'show'])->name('show');
+        Route::delete('/destroy/{id}', [ContactController::class, 'destroy'])->name('destroy');
+    });
+
     // These routes are added because they are outside the resource template.
     Route::name('animals.')->prefix('animals')->group(function () {
         Route::post('/upload', [AnimalController::class, 'uploadPhotos'])->name('upload');

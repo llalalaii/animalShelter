@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             AnimalRescuerSeeder::class,
             AnimalSicknessSeeder::class,
             AdopterAnimalSeeder::class,
+            ContactSeeder::class,
         ]);
 
         DB::table('users')->insert([
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'User',
             'email' => 'user@gmail.com',
             'position' => 'Veterinarian',
-            'password' => Hash::make('qwerty'),
+            'password' => Hash::make('qweasd'),
         ]);
     }
 }
