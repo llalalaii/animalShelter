@@ -11,6 +11,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\RescuerController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

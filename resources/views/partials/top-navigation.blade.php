@@ -45,12 +45,14 @@
                     </ul>
                 </li>
                 @endif
+
                 <li class="nav-item text-center">
                     <a class="nav-link {{Route::currentRouteName() == 'contact.list' || Route::currentRouteName() == 'contact.form.index' ? 'active':''}}"
                         @auth href="{{route('contact.list')}}" @else href="{{route('contact.form.index')}}" @endauth>
                         Contact
                     </a>
                 </li>
+
                 @if(Auth::check())
                 <li class="nav-item dropdown text-center">
                     <a class="nav-link dropdown-toggle" href="#" id="accountNav" role="button" data-bs-toggle="dropdown"
@@ -71,7 +73,7 @@
                 @endif
             </ul>
         </div>
-        {{-- TEMPORARY SEARCH NAVBAR --}}
+
         @if(Route::is('home'))
         <div class="topnav">
             <input type="text" placeholder="Search..." id="main-searchbar">
