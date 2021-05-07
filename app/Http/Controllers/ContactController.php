@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use App\Models\Contact;
-=======
->>>>>>> f7613ed5e7e2bed8402b2064deb23b7bc2e4f7a1
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-<<<<<<< HEAD
     public function index()
     {
         return view('pages.contact.index');
@@ -60,10 +56,4 @@ class ContactController extends Controller
 
         return redirect()->back()->withSuccess('Your message has been submitted.');
     }
-=======
-    public function contact()
-    {
-        return view('pages.contact.index');
-    }
->>>>>>> f7613ed5e7e2bed8402b2064deb23b7bc2e4f7a1
 }
