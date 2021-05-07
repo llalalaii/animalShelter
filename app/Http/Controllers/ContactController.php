@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -53,6 +55,8 @@ class ContactController extends Controller
         $contact->email = $request->email;
         $contact->message = $request->message;
         $contact->save();
+
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new ContactMail($contact));
 
         return redirect()->back()->withSuccess('Your message has been submitted.');
     }
